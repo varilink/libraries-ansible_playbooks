@@ -38,7 +38,7 @@
 
     - name: Find matching database dump files in the backup
       ansible.builtin.find:
-        paths: /tmp/bacula-restores/tmp/
+        paths: /var/bacula-restores/tmp/
         patterns: "{{ wp_database_name }}-????-??-??-???????.sql"
         recurse: no
         file_type: file
@@ -71,7 +71,7 @@
 
         - name: Restore the WordPress site files from the backup
           ansible.builtin.copy:
-            src: "/tmp/bacula-restores/var/www/{{ wp_server_name }}"
+            src: "/var/bacula-restores/var/www/{{ wp_server_name }}"
             dest: "/var/www/"
             remote_src: yes
 
