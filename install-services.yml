@@ -310,7 +310,7 @@
         - ansible.builtin.import_role:
             name: monitor_server
             tasks_from: get-all-access-token
-          delegate_to: home
+          delegate_to: hub
 
         - ansible.builtin.import_role:
             name: monitor_client
