@@ -123,7 +123,8 @@
         dns_record_hostname: "{{ hostvars[wp_host].wp_subdomain }}"
         dns_record_inventory_host: "{{ wp_host }}"
         dns_record_group: project
-      when: "'internal' in hostvars[wp_host].group_names"
+      when: "\
+        'internal' in hostvars[wp_host].group_names and wp_host != 'gateway'"
       tags: dns
 
 - hosts: wordpress:&wp_host
